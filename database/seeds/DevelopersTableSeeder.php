@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Developer;
+
 class DevelopersTableSeeder extends Seeder
 {
     /**
@@ -12,13 +14,13 @@ class DevelopersTableSeeder extends Seeder
     public function run()
     {
         //Remove existing records
-        App\Developers::truncate();
+        Developer::truncate();
 
         $faker = \Faker\Factory::create();
 
-        //Create a random developers
+        //Create random developers
         for ($i = 0; $i < 5; $i++) {
-        	App\Developers::create([
+        	Developer::create([
         		'name' => $faker->name,
         		'type' => $faker->randomElement($array = array('frontend','backend')),
         	]);

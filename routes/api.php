@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 
+use App\Developer;
+use App\Project;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +19,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Projects
+Route::get('projects','ProjectsController@index');
+Route::get('projects/{project}','ProjectsController@show');
+Route::post('projects','ProjectsController@store');
+Route::delete('projects/{project}','ProjectsController@delete');
+
+//Developers
+Route::get('developers','DevelopersController@index');

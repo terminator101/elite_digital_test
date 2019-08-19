@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Project;
+
 class ProjectsTableSeeder extends Seeder
 {
     /**
@@ -12,13 +14,13 @@ class ProjectsTableSeeder extends Seeder
     public function run()
     {
         //Remove existing records
-        App\Projects::truncate();
+        Project::truncate();
 
         $faker = \Faker\Factory::create();
 
         //Create random projects
         for ($i = 0; $i < 5; $i++) {
-        	App\Projects::create([
+        	Project::create([
         		'name' => $faker->word,
         		'client_name' => $faker->company,
         		'lead_developer_id' => $faker->unique()->randomDigitNotNull,
