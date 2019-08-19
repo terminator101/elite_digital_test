@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('client_name');
-            $table->integer('lead_developer_id');
+            $table->integer('lead_developer_id')->nullable();
             $table->timestamps();
         });
     }

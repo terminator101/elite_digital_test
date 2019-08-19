@@ -22,6 +22,14 @@ class ProjectsController extends Controller
     //Store project using passed arguments
     public function store(Request $request)
     {
+        //Project Name is missing
+        if (empty($_POST['name'])) {
+            return response()->json("Missing Project name", 400);
+        }
+        //Client name is missing
+        if (empty($_POST['client_name'])) {
+            return response()->json("Missing Client name", 400);
+        }
     	$project = Project::create($request->all());
     	return response()->json($project, 201);
     }
